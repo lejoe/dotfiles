@@ -18,13 +18,13 @@ brew upgrade
 # tap Brew Bundle
 e_header '📚 Installing Bundle'
 brew tap Homebrew/bundle
+brew install mas
 
 e_header '🍏 Enter your apple id, followed by [ENTER]:'
 read appleid
 mas signin $appleid
 
 e_header '💾 Installing Applications and command line tools'
-cask_args appdir: '/Applications'
 # restore installed apps
 brew bundle
 e_header '💾 Installed all apps and tools from Brewfile'
