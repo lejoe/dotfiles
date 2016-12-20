@@ -58,9 +58,6 @@ defaults write /Users/lejoe/Library/Containers/com.apple.iCal/Data/Library/Prefe
 # Dock                                                                        #
 ###############################################################################
 
-# Minimization effect
-defaults write com.apple.dock mineffect -string 'genie'
-
 # Mouse over magnification
 defaults write com.apple.dock magnification -bool true
 
@@ -68,7 +65,7 @@ defaults write com.apple.dock magnification -bool true
 defaults write com.apple.dock tilesize -int 36
 
 # Change minimize/maximize window effect
-defaults write com.apple.dock mineffect -string "scale"
+defaults write com.apple.dock mineffect -string 'genie'
 
 # Minimize windows into their application’s icon
 defaults write com.apple.dock minimize-to-application -bool true
@@ -168,9 +165,6 @@ defaults write com.apple.finder FXPreferredViewStyle -string 'Nlsv'
 # Show full path in windows
 defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
 
-# Allow text copy from quickview
-defaults delete com.apple.finder QLEnableTextSelection
-
 # unhide library folder
 chflags nohidden ~/Library
 
@@ -227,7 +221,7 @@ defaults write com.apple.screencapture include-date -bool true
 sudo pmset -a hibernatemode 0
 
 # Remove the sleep image file to save disk space
-sudo rm /private/var/vm/sleepimage
+sudo rm -f /private/var/vm/sleepimage
 # Create a zero-byte file instead…
 sudo touch /private/var/vm/sleepimage
 # …and make sure it can’t be rewritten
@@ -276,7 +270,7 @@ defaults write NSGlobalDomain AppleMeasurementUnits -string "Centimeters"
 defaults write NSGlobalDomain AppleMetricUnits -bool true
 
 # Disable smart quotes as they’re annoying when typing code
-defaults delete NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled
+defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
 
 # Disable smart dashes as they’re annoying when typing code
 defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
@@ -285,13 +279,14 @@ defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
 # No spelling check when typing
-defaults delete NSGlobalDomain CheckSpellingWhileTyping
+defaults write NSGlobalDomain CheckSpellingWhileTyping -bool false
 
 # Remove audio feedback
 defaults write NSGlobalDomain com.apple.sound.beep.feedback -bool false
 
 # Stop responding to key presses
-launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist
+# Doesn't work
+# launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist
 
 ###############################################################################
 # Safari & WebKit                                                             #
@@ -606,6 +601,6 @@ defaults write com.tapbots.TweetbotMac OpenURLsDirectly -bool true
 
 for app in "Activity Monitor" "Address Book" "Calendar" "Contacts" "cfprefsd" \
   "Dock" "Finder" "Google Chrome" "Google Chrome Canary" "Mail" "Messages" \
-   "Photos" "Safari"   "SystemUIServer" "Terminal" "Tweetbot" "iCal"; do
+   "Photos" "Safari"   "SystemUIServer" "Tweetbot" "iCal"; do
   killall "${app}" &> /dev/null
 done
