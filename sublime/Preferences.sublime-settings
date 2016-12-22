@@ -1,0 +1,95 @@
+{
+	"always_show_minimap_viewport": true,
+	"binary_file_patterns":
+	[
+		"*.dds",
+		"*.eot",
+		"*.gif",
+		"*.ico",
+		"*.jar",
+		"*.jpeg",
+		"*.jpg",
+		"*.pdf",
+		"*.png",
+		"*.swf",
+		"*.tga",
+		"*.ttf",
+		"*.zip",
+		".idea/**",
+		"data/CH/**",
+		"data/CH/cache/**",
+		"node_modules/**",
+		"vendor/**"
+	],
+	"bold_folder_labels": true,
+	"caret_style": "phase",
+	"close_windows_when_empty": false,
+	"color_inactive_tabs": false,
+	"color_scheme": "Packages/User/SublimeLinter/Seti_monokai (SL).tmTheme",
+	"copy_with_empty_selection": true,
+	"default_encoding": "UTF-8",
+	"default_line_ending": "unix",
+	"drag_text": false,
+	"draw_indent_guides": true,
+	"draw_minimap_border": true,
+	"find_selected_text": true,
+	"folder_exclude_patterns":
+	[
+		".svn",
+		".git",
+		".hg",
+		"CVS",
+		".sass-cache"
+	],
+	"font_face": "Inconsolata for Powerline",
+	"font_options":
+	[
+		"gray_antialias"
+	],
+	"font_size": 18,
+	"highlight_line": true,
+	"highlight_modified_tabs": true,
+	"ignored_packages":
+	[
+		"ActionScript",
+		"AngularJS (CoffeeScript)",
+		"AppleScript",
+		"ASP",
+		"C#",
+		"C++",
+		"Clojure",
+		"D",
+		"Emmet",
+		"JavaScript",
+		"Node Completions",
+		"PyV8",
+		"Vintage"
+	],
+	"index_exclude_patterns":
+	[
+		"/Users/lejoe/Work/Helsana/xcare-spa/bower_components*",
+		"*.log"
+	],
+	"line_padding_bottom": 2,
+	"line_padding_top": 2,
+	"material_theme_big_fileicons": true,
+	"material_theme_bright_scrollbars": true,
+	"material_theme_compact_sidebar": true,
+	"overlay_scroll_bars": "enabled",
+	"rulers":
+	[
+		80
+	],
+	"scroll_past_end": true,
+	"scroll_speed": 5.0,
+	"show_encoding": true,
+	"show_full_path": true,
+	"show_line_endings": true,
+	"sidebar_row_padding_medium": true,
+	"sidebar_xsmall": true,
+	"tab_size": 2,
+	"tabs_small": true,
+	"theme": "Material-Theme.sublime-theme",
+	"translate_tabs_to_spaces": true,
+	"word_wrap": true
+}
