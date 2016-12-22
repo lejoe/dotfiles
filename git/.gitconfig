@@ -1,10 +1,25 @@
-[alias]
+# Includes local/private config
+[include]
+  path = ~/.gitconfig.local
 
+[alias]
 	# View abbreviated SHA, description, and history graph of the latest 20 commits
 	l = log --pretty=oneline -n 20 --graph --abbrev-commit
 
 	# View the current working tree status using the short format
-	s = status -s
+	st = status -sb
+
+	co = checkout
+
+	cm = commit[mergetool "Kaleidoscope"]
+
+	c = commit
+
+	s = status
+
+	b = branch
+
+	l = log
 
 	# Show the diff between the latest commit and the current state
 	d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
@@ -81,11 +96,13 @@
 	# Detect whitespace errors when applying a patch
 	whitespace = fix
 
+[init]
+	templatedir = ~/.git_template
+
 [core]
 
-	# Use custom `.gitignore` and `.gitattributes`
+	# Use custom `.gitignore`
 	excludesfile = ~/.gitignore
-	attributesfile = ~/.gitattributes
 
 	# Treat spaces before tabs and all kinds of trailing whitespace as an error
 	# [default] trailing-space: looks for spaces at the end of a line
@@ -106,18 +123,27 @@
 	# outputting to the terminal. (This is the default setting in Git ≥ 1.8.4.)
 	ui = auto
 
+[color "diff"]
+
+	meta = yellow bold
+	commit = green bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
+
+[color "diff-highlight"]
+
+	oldNormal = red bold
+	oldHighlight = "red bold 52"
+	newNormal = "green bold"
+	newHighlight = "green bold 22"
+
 [color "branch"]
 
 	current = yellow reverse
 	local = yellow
 	remote = green
-
-[color "diff"]
-
-	meta = yellow bold
-	frag = magenta bold # line info
-	old = red # deletions
-	new = green # additions
 
 [color "status"]
 
@@ -128,12 +154,14 @@
 [commit]
 
 	# https://help.github.com/articles/signing-commits-using-gpg/
-	gpgsign = true
+	# gpgsign = true
 
 [diff]
 
 	# Detect copies as well as renames
 	renames = copies
+	
+	tool = Kaleidoscope
 
 [diff "bin"]
 
@@ -149,6 +177,8 @@
 
 	# Include summaries of merged commits in newly created merge commit messages
 	log = true
+
+	tool = Kaleidoscope
 
 [push]
 
@@ -180,3 +210,21 @@
 [url "git://gist.github.com/"]
 
 	insteadOf = "gist:"
+
+[difftool "Kaleidoscope"]
+
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+
+[difftool]
+
+	prompt = false
+
+[mergetool]
+
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+
+	trustexitcode = true
+
+	keepBackup = false
+
+	prompt = false
