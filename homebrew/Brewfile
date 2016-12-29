@@ -35,6 +35,7 @@ cask 'anvil'
 cask 'appzapper'
 cask 'bartender'
 cask 'betterzipql'
+cask 'caffeine'
 cask 'charles'
 cask 'daisydisk'
 cask 'docker'
@@ -52,7 +53,6 @@ cask 'imageoptim'
 cask 'istat-menus'
 cask 'kap'
 cask 'kitematic'
-cask 'moom'
 cask 'openoffice'
 cask 'parallels-desktop10'
 cask 'qlcolorcode'
@@ -76,7 +76,6 @@ cask 'virtualbox'
 cask 'vlc'
 cask 'vyprvpn'
 cask 'xscope'
-mas 'Hues', id: 411811718
 mas 'Keynote', id: 409183694
 mas 'FX Photo Studio PRO', id: 432888949
 mas 'HP Easy Scan', id: 967004861
@@ -89,6 +88,6 @@ mas 'Priime Styles', id: 1089627601
 mas 'Pages', id: 409201541
 mas 'Pixelmator', id: 407963104
 mas 'Todoist', id: 585829637
-mas 'Caffeine', id: 411246225
+mas 'Moom', id: 419330170
 mas 'Numbers', id: 409203825
 mas 'Dropshare', id: 814499284
