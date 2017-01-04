@@ -126,7 +126,7 @@ function ngroka() {
 }
 
 # Compare original and gzipped file size
-function gz() {
+function gzs() {
 	local origsize=$(wc -c < "$1");
 	local gzipsize=$(gzip -c "$1" | wc -c);
 	local ratio=$(echo "$gzipsize * 100 / $origsize" | bc -l);

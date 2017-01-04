@@ -64,7 +64,10 @@ alias l="ls -lhF ${colorflag}"
 alias la="ls -lhaF ${colorflag}"
 
 # List only directories
-alias lsd="ls -lhF ${colorflag} | grep --color=never '^d'"
+alias ld="ls -lhF ${colorflag} | grep --color=never '^d'"
+
+# list all with pagination
+alias ll="ls -lhaFG | less -R"
 
 # Always use color output for `ls`
 alias ls="command ls ${colorflag}"
@@ -199,12 +202,12 @@ alias df='df -h'
 alias profileme="history | awk '{print \$2}' | awk 'BEGIN{FS=\"|\"}{print \$1}' | sort | uniq -c | sort -nr | head -n 20"
 
 # Shortcut to the bash file to find commands
-alias h='s ~/.dotfiles/bash'
+alias h='heelp | less -R'
+alias hf='heelp | grep'
 alias hh='h'
 alias hhh='h'
 alias hhhh='h'
 alias hhhhh='h'
-alias heelp='h'
 alias heeelp='h'
 alias heeeelp='h'
 alias heeeeelp='h'

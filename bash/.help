@@ -1,0 +1,166 @@
+#!/usr/bin/env bash
+
+declare -A shortcuts=( 
+  [".. or ... or ...."]="Jump to parent folders"
+  ["~"]="Jump to home folder"
+  ["-"]="Jump to previous folder"
+  ["dl"]="Jump to ~/Downloads"
+  ["dt"]="Jump to ~/Desktop"
+  ["pr"]="Jump to ~/Projects"
+  ["l or ls"]="List files with colors"
+  ["la"]="List all files in long format with colors"
+  ["ld"]="list all folders"
+  ["ll"]="list all with pagination"
+)
+
+declare -A commands=( 
+  ["mkd"]="Create a new directory and enter it"
+  ["f"]="Find shorthand"
+  ["cdf"]="Change working directory to the top-most Finder window location"
+  ["cp_p"]="Copy w/ progress"
+  ["fs"]="Determine size of a file or total size of a directory"
+  ["tre"]="colorified version of \'tree\'"
+  ["cleanup"]="Recursively delete \'.DS_Store\' files"
+  ["path"]="Print each PATH entry on a separate line"
+  ["df"]="Prints out the amount of free space on one's media"
+)
+
+declare -A compressions=( 
+  ["gz"]="get gzipped size"
+  ["targz"]="Create a .tar.gz archive, using \'zopfli\', \'pigz\' or \'gzip\' for compression"
+  ["gzs"]="Compare original and gzipped file size"
+)
+
+declare -A links=( 
+  ["daturl"]="Create a data URL from a file"
+  ["gitio"]="Create a git.io short URL"
+  ["whois"]="whois a domain or a URL"
+  ["digga"]="Run \'dig\' and display the most useful info"
+)
+
+declare -A servers=( 
+  ["server"]="Start an HTTP server from a directory, optionally specifying the port"
+  ["phpserver"]="Start a PHP server from a directory, optionally specifying the port"
+  ["ngroka"]="Start a server with ngrok"
+  ["getcertnames"]="Show all the names (CNs and SANs) listed in the SSL certificate for a given domain"
+)
+
+declare -A formatters=( 
+  ["json"]="Syntax-highlight JSON strings or files"
+  ["escape"]="UTF-8-encode a string of Unicode symbols"
+  ["unidecode"]="Decode \\{ABCD}-style Unicode escape sequences"
+  ["urlencode"]="URL-encode strings"
+)
+
+declare -A editors=( 
+  ["s"]="opens the directory in Sublime Text"
+  ["a"]="opens the current directory in Atom Editor"
+  ["v"]="opens the current directory in Vim"
+  ["o"]="opens the current directory in Finder"
+)
+
+declare -A networks=( 
+  ["p"]="ping my website"
+  ["ip"]="get public ip"
+  ["localip"]="get local ip"
+  ["ips"]="get all ips"
+  ["ifactive"]="Show active network interfaces"
+  ["sniff"]="View HTTP traffic"
+  ["httpdump"]="Dump HTTP traffic"
+)
+
+declare -A others=( 
+  ["c"]="Trim new lines and copy to clipboard"
+  ["flush"]="Flush Directory Service cache"
+  ["lscleanup"]="Clean up LaunchServices to remove duplicates in the “Open With” menu"
+  ["timer"]="stopwatch"
+  ["week"]="get week number"
+  ["update"]="Get macOS Software Updates, and update installed Ruby gems, Homebrew, npm, and their installed packages"
+  ["gi"]="Gitignore tool"
+  ["camerausedby"]="who is using the laptop's iSight camera?"
+  ["emptytrash"]="empty ALL trashes"
+  ["show"]="Show hidden files in Finder"
+  ["hide"]="Hide hidden files in Finder"
+  ["showdesktop"]="Show all desktop icons"
+  ["hidedesktop"]="Hide all desktop icons"
+  ["spoton"]="Enable Spotlight"
+  ["spotoff"]="Disable Spotlight"
+  ["mergepdf"]="merge PDF files: mergepdf -o output.pdf input{1,2,3}.pdf"
+  ["badge"]="Ring the terminal bell, and put a badge on Terminal.app’s Dock icon"
+  ["map"]="Map function. Ex: find . -name .gitattributes | map dirname"
+  ["chromekill"]="Kill all the tabs in Chrome to free up memory"
+  ["afk"]="Lock the screen (when going AFK)"
+  ["reload"]="Reload the shell (i.e. invoke as a login shell)"
+  ["profileme"]="Ranks the most used commands in the history"
+  ["pubkey"]="copies the public key to the clibboard"
+  ["t"]="shortcut to find a process / task"
+  ["h"]="display this help"
+  ["hf"]="search in the documentation: hf folder"
+)
+
+# Helper to show the name of a command
+function _c() { 
+  printf "    \e[1m\e[36m%-18s\e[97m\e[0m %s \n" "$1" "$2";
+  # printf("%- 40s %- 40s\n", $1);
+}
+
+# Helper to show a title section
+function _t() { 
+  printf "\r\n\n\e[1m\e[34m$1\e[97m\e[0m\n"
+}
+
+
+function heelp() {
+  _t "FILES & FOLDERS"
+
+  _t "  Shortcuts"
+  for shortcut in "${!shortcuts[@]}"; do
+    _c "$shortcut" "${shortcuts[$shortcut]}"
+  done | sort
+
+  _t "  Commands"
+  for command in "${!commands[@]}"; do
+    _c "$command" "${commands[$command]}"
+  done | sort
+
+  _t "TAR & ZIP"
+  for compression in "${!compressions[@]}"; do
+    _c "$compression" "${compressions[$compression]}"
+  done | sort
+
+  _t "URLS & DOMAINS"
+  for link in "${!links[@]}"; do
+    _c "$link" "${links[$link]}"
+  done | sort
+
+  _t "SERVERS"
+  for server in "${!servers[@]}"; do
+    _c "$server" "${servers[$server]}"
+  done | sort
+  
+
+  _t "FORMATTERS"
+  for formatter in "${!formatters[@]}"; do
+    _c "$formatter" "${formatters[$formatter]}"
+  done | sort
+
+  _t "EDITORS"
+  for editor in "${!editors[@]}"; do
+    _c "$editor" "${editors[$editor]}"
+  done | sort
+
+  _t "GIT"
+  _c "gitp" "prune merged branches"
+
+
+  _t "NETWORK"
+  for network in "${!networks[@]}"; do
+    _c "$network" "${networks[$network]}"
+  done | sort
+
+
+  _t "OTHERS"
+  for other in "${!others[@]}"; do
+    _c "$other" "${others[$other]}"
+  done | sort
+}
