@@ -94,6 +94,8 @@ declare -A others=(
   ["profileme"]="Ranks the most used commands in the history"
   ["pubkey"]="copies the public key to the clibboard"
   ["t"]="shortcut to find a process / task"
+  ["note"]="Add note to Notes.app"
+  ["remind"]="Add reminder to Reminders.app"
   ["h"]="display this help"
   ["hf"]="search in the documentation: hf folder"
 )
