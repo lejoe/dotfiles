@@ -47,6 +47,7 @@ alias m='subl .'
 alias mate='subl .'
 alias s='subl'
 alias s.='subl .'
+alias c='code'
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
@@ -129,9 +130,6 @@ command -v sha1sum > /dev/null || alias sha1sum="shasum"
 jscbin="/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources/jsc";
 [ -e "${jscbin}" ] && alias jsc="${jscbin}";
 unset jscbin;
-
-# Trim new lines and copy to clipboard
-alias c="tr -d '\n' | pbcopy"
 
 # Recursively delete `.DS_Store` files
 alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"

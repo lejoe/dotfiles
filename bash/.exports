@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-# Make sublime the default editor.
-export EDITOR='subl -w';
+# Make vscode the default editor.
+export EDITOR='code -w';
 
 
 # Make Python use UTF-8 encoding for output to stdin, stdout, and stderr.

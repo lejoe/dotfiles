@@ -53,6 +53,7 @@ declare -A formatters=(
 )
 
 declare -A editors=( 
+  ["c"]="opens the directory in VSCode"
   ["s"]="opens the directory in Sublime Text"
   ["a"]="opens the current directory in Atom Editor"
   ["v"]="opens the current directory in Vim"
@@ -70,7 +71,6 @@ declare -A networks=(
 )
 
 declare -A others=( 
-  ["c"]="Trim new lines and copy to clipboard"
   ["flush"]="Flush Directory Service cache"
   ["lscleanup"]="Clean up LaunchServices to remove duplicates in the “Open With” menu"
   ["timer"]="stopwatch"
