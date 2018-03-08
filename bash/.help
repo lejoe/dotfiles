@@ -68,6 +68,7 @@ declare -A networks=(
   ["ifactive"]="Show active network interfaces"
   ["sniff"]="View HTTP traffic"
   ["httpdump"]="Dump HTTP traffic"
+  ["down4me"]="Checks whether a website is down for you, or everybody"
 )
 
 declare -A dockers=(
@@ -123,6 +124,7 @@ declare -A others=(
   ["remind"]="Add reminder to Reminders.app"
   ["h"]="display this help"
   ["hf"]="search in the documentation: hf folder"
+  ["explain"]="explain any bash command via mankier.com manpage API"
 )
 
 # Helper to show the name of a command

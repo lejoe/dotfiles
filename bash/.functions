@@ -120,6 +120,13 @@ function phpserver() {
 	php -S "${ip}:${port}";
 }
 
+# checks whether a website is down for you, or everybody
+# example" $ down4me http://www.google.com
+function down4me ()
+{
+    curl -Ls "http://downforeveryoneorjustme.com/$1" | sed '/just you/!d;s/<[^>]*>//g'
+}
+
 # Start a server with ngrok
 function ngroka() { 
 	ngrok http -host-header=$1 $1:80;
@@ -368,4 +375,20 @@ function docker-remove-images() {
 # attempt to list the environmental variables of the supplied image ID'
 function docker-runtime-environment() {
   docker run "$@" env
+}
+
+#   explain any bash command via mankier.com manpage API
+explain () {
+  if [ "$#" -eq 0 ]; then
+    while read  -p "Command: " cmd; do
+      curl -Gs "https://www.mankier.com/api/explain/?cols="$(tput cols) --data-urlencode "q=$cmd"
+    done
+    echo "Bye!"
+  elif [ "$#" -eq 1 ]; then
+    curl -Gs "https://www.mankier.com/api/explain/?cols="$(tput cols) --data-urlencode "q=$1"
+  else
+    echo "Usage"
+    echo "explain                  interactive mode."
+    echo "explain 'cmd -o | ...'   one quoted command to explain it."
+  fi
 }
