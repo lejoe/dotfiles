@@ -42,13 +42,6 @@ alias gl='git log'
 alias gdiff='git diff'
 alias gitp='git branch --merged | grep -v "\*" | xargs -n 1 git branch -d'
 
-# Editor (sublime) aliases
-alias m='subl .'
-alias mate='subl .'
-alias s='subl'
-alias s.='subl .'
-alias c='code'
-
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
 	colorflag="--color"

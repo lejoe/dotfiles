@@ -220,6 +220,16 @@ function s() {
 	fi;
 }
 
+# `c` with no arguments opens the current directory in VSCode, otherwise
+# opens the given location
+function c() {
+	if [ $# -eq 0 ]; then
+		code .;
+	else
+		code "$@";
+	fi;
+}
+
 # `a` with no arguments opens the current directory in Atom Editor, otherwise
 # opens the given location
 function a() {
