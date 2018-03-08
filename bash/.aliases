@@ -28,7 +28,6 @@ alias dt="cd ~/Desktop"
 alias pr="cd ~/projects"
 alias g="git"
 alias h="history"
-alias j="jobs"
 
 # Git shortcuts
 alias gco='git checkout'
