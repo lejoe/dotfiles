@@ -270,7 +270,7 @@ function tre() {
 
 # Gitignore tool
 function gi() { 
-	curl -L -s https://www.gitignore.io/api/\$@ ;
+	curl -L -s https://www.gitignore.io/api/"$@" ;
 }
 
 # whois a domain or a URL
