@@ -104,7 +104,8 @@ module.exports = {
     'hyperterm-1password',
     'hyperterm-bold-tab',
     'hypercwd',
-    'hyperterm-summon'
+    'hyperterm-summon',
+    'hyper-tabs-enhanced',
   ],
 
   // in development, you can create a directory under
