@@ -57,6 +57,10 @@ complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes Syste
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
+
+# Enable autojump
+[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+
 # Change node home install folder so it doesn't mess with homebrew
 export N_PREFIX=$HOME/.n
 export PATH=$N_PREFIX/bin:$PATH
