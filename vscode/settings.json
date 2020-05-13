@@ -1,0 +1,67 @@
+{
+  "git.confirmSync": false,
+  "window.zoomLevel": 0,
+  "editor.fontLigatures": true,
+  "editor.fontFamily": "'Fira Code'",
+  "editor.fontSize": 16,
+  "editor.renderIndentGuides": false,
+  // "workbench.colorCustomizations": {
+  //   "editor.findMatchBackground": "#76D6E7",
+  //   "editor.findMatchHighlightBackground": "#76E79F",
+  // },
+  "[yaml]": {},
+  "gitlens.keymap": "alternate",
+  "gitlens.advanced.messages": {
+    "suppressCommitHasNoPreviousCommitWarning": false,
+    "suppressCommitNotFoundWarning": false,
+    "suppressFileNotUnderSourceControlWarning": false,
+    "suppressGitVersionWarning": false,
+    "suppressLineUncommittedWarning": false,
+    "suppressNoRepositoryWarning": false,
+    "suppressResultsExplorerNotice": false,
+    "suppressShowKeyBindingsNotice": true
+  },
+  "workbench.colorTheme": "One Monokai",
+  "workbench.iconTheme": "ayu",
+  "eslint.autoFixOnSave": true,
+  "gitlens.historyExplorer.enabled": true,
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "gitlens.views.fileHistory.enabled": true,
+  "gitlens.views.lineHistory.enabled": true,
+  "projectManager.git.baseFolders": [
+      "/Users/lejoe/Projects"
+  ],
+  "projectManager.git.maxDepthRecursion": 4,
+  "workbench.statusBar.feedback.visible": false,
+  "workbench.tree.indent": 18,
+  "breadcrumbs.enabled": true,
+  "search.useGlobalIgnoreFiles": true,
+  "search.exclude": {
+    ".next/": true,
+    "package-lock.json": true,
+    "yarn.lock.json": true
+  },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "editor.formatOnSave": true,
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "workbench.startupEditor": "newUntitledFile"
+}
