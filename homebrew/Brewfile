@@ -1,76 +1,121 @@
-cask_args appdir: '/Applications'
-tap 'caskroom/cask'
-tap 'caskroom/versions'
-tap 'homebrew/binary'
+tap 'caarlos0/tap'
 tap 'homebrew/bundle'
-tap 'homebrew/completions'
+tap 'homebrew/cask'
+tap 'homebrew/cask-drivers'
+tap 'homebrew/cask-fonts'
+tap 'homebrew/cask-versions'
 tap 'homebrew/core'
-tap 'homebrew/dupes'
-tap 'homebrew/versions'
-brew 'aws-elasticbeanstalk'
-brew 'awscli'
+tap 'homebrew/services'
 brew 'readline'
+brew 'autoconf'
+brew 'autojump'
+brew 'automake'
+brew 'aws-elasticbeanstalk'
+brew 'openssl@1.1'
+brew 'awscli'
 brew 'bash'
+brew 'bash-completion@2'
 brew 'boost'
+brew 'brew-cask-completion'
+brew 'certbot'
+brew 'circleci'
 brew 'colordiff'
+brew 'composer'
 brew 'coreutils'
 brew 'diff-so-fancy'
-brew 'libpng'
-brew 'freetype'
+brew 'libksba'
+brew 'pth'
+brew 'dirmngr'
+brew 'docker-completion'
+brew 'docker-compose-completion'
+brew 'docker-machine-completion'
+brew 'docker-machine-driver-xhyve'
+brew 'dockviz'
+brew 'ffmpeg'
+brew 'gettext', link: true
+brew 'gifsicle'
 brew 'git'
 brew 'git-extras'
-brew 'lua'
-brew 'highlight'
-brew 'hub'
-brew 'jpeg'
-brew 'libtiff'
+brew 'gnupg'
+brew 'gpg-agent'
 brew 'libtool'
-brew 'xz'
+brew 'graphviz'
+brew 'grep'
+brew 'highlight'
+brew 'htop'
+brew 'hub'
 brew 'imagemagick'
+brew 'jq'
+brew 'libusb-compat'
+brew 'libyaml'
 brew 'mas'
-brew 'n'
-brew 'openssl'
-brew 'pcre'
-brew 'postgresql'
-brew 'pow'
+brew 'node'
+brew 'open-completion'
+brew 'openshift-cli'
+brew 'openssh'
+brew 'pkg-config'
 brew 's3cmd'
+brew 'screen'
 brew 'ssh-copy-id'
 brew 'tidy-html5'
 brew 'tree'
+brew 'watchman'
+brew 'wget'
 brew 'yarn'
-brew 'homebrew/completions/brew-cask-completion'
-brew 'homebrew/dupes/grep'
-brew 'homebrew/dupes/openssh'
-brew 'homebrew/dupes/screen'
-brew 'homebrew/versions/bash-completion2'
+brew 'yq'
+brew 'zlib'
+brew 'caarlos0/tap/org-stats'
 cask '1password-beta'
 cask 'alfred'
-cask 'anvil'
 cask 'appzapper'
+cask 'authy'
 cask 'bartender'
 cask 'betterzipql'
+cask 'brave-browser'
 cask 'caffeine'
+cask 'caret'
 cask 'charles'
+cask 'colorpicker-developer'
 cask 'daisydisk'
+cask 'db-browser-for-sqlite'
 cask 'docker'
 cask 'dropbox'
+cask 'expo-xde'
+cask 'fastlane'
 cask 'firefox'
 cask 'fitbit-connect'
-cask 'flux'
+cask 'font-cousine'
+cask 'font-droid-sans-mono'
+cask 'font-fira-code'
+cask 'font-hack'
+cask 'font-inconsolata'
+cask 'font-raleway'
+cask 'font-roboto'
+cask 'font-roboto-mono'
+cask 'font-source-code-pro'
+cask 'franz'
 cask 'google-chrome'
 cask 'google-chrome-canary'
+cask 'google-cloud-sdk'
 cask 'google-drive'
+cask 'google-photos-backup'
 cask 'hp-eprint'
 cask 'hyper'
 cask 'imagealpha'
 cask 'imageoptim'
+cask 'intel-power-gadget'
 cask 'istat-menus'
+cask 'java11'
 cask 'kap'
 cask 'kitematic'
 cask 'ksdiff'
+cask 'microsoft-teams'
+cask 'minishift'
 cask 'ngrok'
 cask 'openoffice'
 cask 'parallels-desktop10'
+cask 'poedit'
+cask 'postman'
 cask 'qlcolorcode'
 cask 'qlmarkdown'
 cask 'qlprettypatch'
@@ -85,25 +130,46 @@ cask 'sopcast'
 cask 'spotify'
 cask 'steam'
 cask 'sublime-text'
+cask 'sweet-home3d'
+cask 'telegram'
 cask 'the-unarchiver'
+cask 'ticktick'
+cask 'tiptoi-manager'
 cask 'tower'
 cask 'transmit'
-cask 'virtualbox'
+cask 'visual-studio-code'
 cask 'vlc'
 cask 'vyprvpn'
+cask 'xquartz'
 cask 'xscope'
-mas 'Keynote', id: 409183694
-mas 'FX Photo Studio PRO', id: 432888949
-mas 'HP Easy Scan', id: 967004861
+mas 'Boxy', id: 1053031090
 mas 'CalendarMenu', id: 510684580
-mas 'Kaleidoscope', id: 587512244
+mas 'Cleanbox', id: 1190617406
+mas 'Dropshare', id: 814499284
 mas 'Evernote', id: 406056744
+mas 'FX Photo Studio PRO', id: 432888949
+mas 'Gemini 2', id: 1090488118
+mas 'GIF Brewery 3', id: 1081413713
+mas 'Harvest', id: 506189836
+mas 'HP Easy Scan', id: 967004861
 mas 'iMovie', id: 408981434
-mas 'Tweetbot', id: 557168941
-mas 'Priime Styles', id: 1089627601
-mas 'Pages', id: 409201541
-mas 'Pixelmator', id: 407963104
-mas 'Todoist', id: 585829637
+mas 'Kaleidoscope', id: 587512244
+mas 'Kelir', id: 1145215534
+mas 'Kelir Pro', id: 1186597992
+mas 'Keynote', id: 409183694
+mas 'Live Home 3D Pro', id: 1066145115
+mas 'MindNode', id: 1289197285
 mas 'Moom', id: 419330170
 mas 'Numbers', id: 409203825
-mas 'Dropshare', id: 814499284
+mas 'Pages', id: 409201541
+mas 'Pixelmator', id: 407963104
+mas 'Priime Styles', id: 1089627601
+mas 'SiteSucker', id: 442168834
+mas 'Spark', id: 1176895641
+mas 'Sweet Home 3D', id: 669289700
+mas 'Sweet Home 3D', id: 669289700
+mas 'Todoist', id: 585829637
+mas 'Tweetbot', id: 557168941
+mas 'Tweetbot', id: 1384080005
+mas 'Visual Sitemap Builder', id: 1148363555
+mas 'Xcode', id: 497799835
