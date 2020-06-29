@@ -1,10 +1,14 @@
 # Created by http://www.gitignore.io
+# https://www.toptal.com/developers/gitignore/api/macos,node,visualstudiocode
+# Then adapted to leave project related stuff
 
 ### OSX ###
 .DS_Store
 .AppleDouble
 .LSOverride
 
+# Icon must end with two \r
+Icon
 
 # Thumbnails
 ._*
@@ -37,5 +41,11 @@ npm-debug.log*
 # Dependency directories
 node_modules
 
+
+### vscode ###
 # vscode folders
 .vscode
+*.code-workspace
+
+# Local History for Visual Studio Code
+.history/
