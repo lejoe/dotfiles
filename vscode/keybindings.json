@@ -1,13 +1,33 @@
 // Place your key bindings in this file to overwrite the defaults
 [
-    {
-        "key": "cmd+v",
-        "command": "editor.action.clipboardPasteAction",
-        "when": "!editorTextFocus"
-    },
-    {
-        "key": "cmd+alt+v",
-        "command": "editor.action.clipboardPasteAction",
-        "when": "editorTextFocus && !editorReadonly"
-    }
+  {
+    "key": "cmd+v",
+    "command": "editor.action.clipboardPasteAction",
+    "when": "!editorTextFocus"
+  },
+  {
+    "key": "cmd+alt+v",
+    "command": "editor.action.clipboardPasteAction",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "cmd+b cmd+d",
+    "command": "extension.base64Decode",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "cmd+e cmd+d",
+    "command": "-extension.base64Decode",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "cmd+b cmd+e",
+    "command": "extension.base64Encode",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "cmd+e cmd+e",
+    "command": "-extension.base64Encode",
+    "when": "editorTextFocus"
+  }
 ]
