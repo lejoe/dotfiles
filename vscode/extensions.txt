@@ -48,6 +48,7 @@ stylelint.vscode-stylelint
 taniarascia.new-moon-vscode
 teabyii.ayu
 techer.open-in-browser
+timonwong.shellcheck
 whizkydee.material-palenight-theme
 william-voyek.vscode-nginx
 wix.vscode-import-cost
