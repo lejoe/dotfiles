@@ -22,6 +22,7 @@ formulahendry.auto-rename-tag
 formulahendry.docker-explorer
 HookyQR.beautify
 janjoerke.jenkins-pipeline-linter-connector
+jock.svg
 jolaleye.horizon-theme-vscode
 jpoissonnier.vscode-styled-components
 karyfoundation.theme-karyfoundation-themes
