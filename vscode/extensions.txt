@@ -26,6 +26,7 @@ jock.svg
 jolaleye.horizon-theme-vscode
 jpoissonnier.vscode-styled-components
 karyfoundation.theme-karyfoundation-themes
+kenhowardpdx.vscode-gist
 kokororin.vscode-phpfmt
 mikestead.dotenv
 milobo.react-native-styled-component-snippets
