@@ -125,6 +125,7 @@ declare -A others=(
   ["h"]="display this help"
   ["hf"]="search in the documentation: hf folder"
   ["explain"]="explain any bash command via mankier.com manpage API"
+  ["vlc-stream"]="start vlc with a m3u8 stream link and optional referer header"
 )
 
 # Helper to show the name of a command

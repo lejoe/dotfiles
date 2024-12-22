@@ -27,7 +27,6 @@ alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias pr="cd ~/projects"
 alias g="git"
-alias h="history"
 
 # Git shortcuts
 alias gco='git checkout'
@@ -53,8 +52,8 @@ fi
 # List all files colorized in long format
 alias l="ls -lhF ${colorflag}"
 
-# List all files colorized in long format, including dot files
-alias la="ls -lhaF ${colorflag}"
+# List all files colorized in long format, excluding . and ..
+alias la="ls -lAF ${colorflag}"
 
 # List only directories
 alias ld="ls -lhF ${colorflag} | grep --color=never '^d'"
@@ -165,7 +164,7 @@ alias map="xargs -n1"
 
 # One of @janmoesen’s ProTip™s
 for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
-	alias "$method"="lwp-request -m '$method'"
+	alias "${method}"="lwp-request -m '${method}'"
 done
 
 # Stuff I never really use but cannot delete either because of http://xkcd.com/530/
@@ -174,13 +173,13 @@ alias pumpitup="osascript -e 'set volume output volume 100'"
 
 # Kill all the tabs in Chrome to free up memory
 # [C] explained: http://www.commandlinefu.com/commands/view/402/exclude-grep-from-your-grepped-output-of-ps-alias-included-in-description
-alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v extension-process | tr -s ' ' | cut -d ' ' -f2 | xargs kill"
-
-# Lock the screen (when going AFK)
-alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
+# DEPRECATED?
+# alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v extension-process | tr -s ' ' | cut -d ' ' -f2 | xargs kill"
 
 # Reload the shell (i.e. invoke as a login shell)
+# DEPRECATED?
 alias reload="exec $SHELL -l"
+# alias reload='source ~/.bash_profile && echo "File .bash_profile reloaded correctly" || echo "Syntax error, could not import the file"';
 
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
