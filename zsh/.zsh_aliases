@@ -1,0 +1,94 @@
+
+# Copy recursively (-r) and be prompted to replace files
+# rather than it doing it automatically (-i).
+alias cp="cp -ir"
+
+
+# Short to open the current folder
+alias o='open .'
+
+# Always create directories recursively if a parent folder does not exist.
+alias mkdir='mkdir -p'
+
+# Shortcuts
+alias dl="cd ~/Downloads"
+alias dt="cd ~/Desktop"
+alias pr="cd ~/projects"
+
+# Get week number
+alias week='date +%V'
+
+# Stopwatch
+alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
+
+# Default short ping to test connection
+alias p="ping -c 5 lejoe.com"
+
+# Makes ping only do 5 pings by default
+alias ping='ping -c 5'
+
+# IP addresses
+alias ip="curl -s https://1.1.1.1/cdn-cgi/trace | grep ip | cut -d= -f2"
+alias localip="ipconfig getifaddr en0 || ipconfig getifaddr en1"
+alias ips="ifconfig | grep 'inet ' | grep -v 127.0.0.1 | awk '{print \$2}'"
+# Show active network interfaces
+alias ifactive="networksetup -listallhardwareports"
+
+# Flush Directory Service cache
+alias flush="dscacheutil -flushcache && killall -HUP mDNSResponder"
+
+
+# Recursively delete `.DS_Store` files
+alias cleanup='fd -H "\.DS_Store|\.localized$" -t f -x rm -i {} \; && echo "Cleanup complete"'
+
+# Ranks the most used commands in the history
+alias profileme="fc -l 1 | awk '{CMD[\$2]++;count++;}END { for (a in CMD)print CMD[a] \" \" CMD[a]/count*100 \"% \" a;}' | grep -v \"./\" | column -c3 -s \" \" -t | sort -nr | nl | head -n20"
+
+# Shortcut to the bash file to find commands
+alias h='heelp | less -R'
+alias hf='heelp | grep'
+alias hh='h'
+alias hhh='h'
+alias hhhh='h'
+alias hhhhh='h'
+alias heeelp='h'
+alias heeeelp='h'
+alias heeeeelp='h'
+alias heeeeeelp='h'
+
+# copies the public key to the clibboard
+alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
+
+# shortcut to find a process / task
+alias t="ps -ef | grep"
+
+# Docker and docker compose aliases
+alias dk='docker'  # List last Docker container
+alias dklc='docker ps -l'  # List last Docker container
+alias dklcid='docker ps -l -q'  # List last Docker container ID
+alias dklcip='docker inspect -f "{{.NetworkSettings.IPAddress}}" $(docker ps -l -q)'  # Get IP of last Docker container
+alias dkps='docker ps'  # List running Docker containers
+alias dkpsa='docker ps -a'  # List all Docker containers
+alias dki='docker images'  # List Docker images
+alias dkrmac='docker rm $(docker ps -a -q)'  # Delete all Docker containers
+alias dkrmlc='docker-remove-most-recent-container'  # Delete most recent (i.e., last) Docker container
+alias dkrmall='docker-remove-stale-assets'  # Delete all untagged images and exited containers
+alias dkrmli='docker-remove-most-recent-image'  # Delete most recent (i.e., last) Docker image
+alias dkrmi='docker-remove-images'  # Delete images for supplied IDs or all if no IDs are passed as arguments
+alias dkre='docker-runtime-environment'  # List environmental variables of the supplied image ID
+alias dkelc='docker exec -it `dklcid` bash' # Enter last container (works with Docker 1.3 and above)
+
+alias dco="docker-compose"
+alias dcol="docker-compose logs -f --tail 100"
+
+# better dir listing with eza
+alias ls='eza --color=always --group-directories-first --icons'
+alias ll='eza -la --icons --octal-permissions --group-directories-first'
+alias l='eza -bGF --header --git --color=always --group-directories-first --icons'
+alias llm='eza -lbGd --header --git --sort=modified --color=always --group-directories-first --icons' 
+alias la='eza --long --all --group --group-directories-first'
+alias lx='eza -lbhHigUmuSa@ --time-style=long-iso --git --color-scale --color=always --group-directories-first --icons'
+
+alias lS='eza -1 --color=always --group-directories-first --icons'
+alias lt='eza --tree --level=2 --color=always --group-directories-first --icons'
+alias l.="eza -a | grep -E '^\.'"

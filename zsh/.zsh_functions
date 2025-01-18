@@ -1,0 +1,210 @@
+#!/bin/zsh
+
+# Function: fs
+# Description: Show file/directory sizes with human-readable format
+# Arguments:
+#   $@ - Files/directories to check (default: current directory)
+# Example: fs           # shows sizes in current directory
+#         fs ~/Downloads # shows size of Downloads folder
+fs() {
+    if (( $# == 0 )); then
+        # Sort by size, largest last
+        du -shc *(D) | sort -h
+    else
+        # Check if files/directories exist
+        for path in "$@"; do
+            if [[ ! -e $path ]]; then
+                echo "Error: $path does not exist"
+                continue
+            fi
+            du -sh "$path"
+        done
+    fi
+}
+
+# Function: down4me
+# Description: Check if a website is down globally or just locally
+# Arguments:
+#   $1 - URL to check
+# Example: down4me github.com
+# down4me() {
+#     if [[ $# -eq 0 ]]; then
+#         echo "Usage: down4me <url>"
+#         return 1
+#     }
+
+#     # Clean up URL
+#     local url="${1#http*://}"
+#     url="${url%%/*}"
+
+#     echo "Checking $url..."
+    
+#     if ! curl -m 10 -sL "https://isitdown.site/api/v3/${url}" | \
+#         grep -q '"isitdown":false'; then
+#         echo "✗ Site appears to be down"
+#         return 1
+#     else
+#         echo "✓ Site is up"
+#         return 0
+#     fi
+# }
+
+# Function: c
+# Description: Open files/directories in VS Code
+# Arguments:
+#   $@ - Files or directories to open (default: current directory)
+# Example: c             # opens current directory
+#         c file.txt    # opens single file
+#         c ~/Projects  # opens project folder
+# c() {
+#     local code_cmd="code"
+    
+#     # Check if VS Code is installed
+#     if ! command -v $code_cmd &> /dev/null; then
+#         # Try VS Code Insiders if regular VS Code is not found
+#         if command -v code-insiders &> /dev/null; then
+#             code_cmd="code-insiders"
+#         else
+#             echo "Error: VS Code is not installed"
+#             return 1
+#         fi
+#     }
+
+#     if (( $# == 0 )); then
+#         $code_cmd .
+#     else
+#         $code_cmd "$@"
+#     fi
+# }
+
+# Function: o
+# Description: Open files or directories in default application
+# Arguments:
+#   $@ - Files or directories to open (default: current directory)
+# Example: o             # opens current directory
+#         o file.pdf    # opens PDF file
+#         o ~/Documents # opens Documents folder
+# o() {
+#     local open_cmd
+
+#     # Determine correct open command based on OS
+#     case "$OSTYPE" in
+#         darwin*) open_cmd='open' ;;
+#         linux*)  open_cmd='xdg-open' ;;
+#         *)       echo "Unsupported operating system"; return 1 ;;
+#     esac
+
+#     if (( $# == 0 )); then
+#         $open_cmd .
+#     else
+#         $open_cmd "$@"
+#     fi
+# }
+
+
+# Function: gi
+# Description: Generate .gitignore file from gitignore.io API
+# Arguments:
+#   $@ - List of technologies (e.g., python, node, macos)
+# Example: gi python node > .gitignore
+function gi() { 
+    curl -sLw https://www.toptal.com/developers/gitignore/api/\$@;  
+}
+
+# Function: whois
+# Description: Get WHOIS information for a domain or URL
+# Arguments:
+#   $1 - domain name or URL
+# Example: whois example.com
+#         whois https://example.com/path
+# whois() {
+#     if [[ $# -eq 0 ]]; then
+#         echo "Usage: whois <domain or URL>"
+#         return 1
+#     }
+
+#     # Extract domain from URL if needed
+#     local domain=$(echo "$1" | sed -E 's#^https?://([^/]+).*$#\1#;s#^www\.##')
+
+#     echo "Getting whois record for: $domain..."
+
+#     # Query multiple WHOIS servers
+#     command whois "$domain" | grep -v "^[%>]" | grep -v "^$"
+# }
+
+# Function: camerausedby
+# Description: Check which processes are using Mac cameras
+# Example: camerausedby
+# camerausedby() {
+#     echo "Checking camera usage... 📷"
+    
+#     # Check for camera-related processes
+#     local camera_procs=$(lsof | grep -E "AppleCamera|VDC|Camera" | awk '{print $2}' | uniq)
+    
+#     if [[ -z "$camera_procs" ]]; then
+#         echo "No active camera usage detected"
+#         return 0
+#     fi
+    
+#     echo "Process(es) using camera:"
+#     for pid in $camera_procs; do
+#         ps -p "$pid" -o pid,comm,user
+#     done
+# }
+
+# Function: denter
+# Description: Enter a running Docker container with an interactive shell
+# Arguments:
+#   $1 - container name
+#   $2 - (optional) shell to use, defaults to /bin/bash
+# Example: denter nginx /bin/sh
+denter() {
+    if [[ $# -eq 0 ]]; then
+        echo "Usage: denter <container-name> [command]"
+        echo "Example: denter mycontainer"
+        return 1
+    fi
+
+    local container=$1
+    local shell=${2:-/bin/bash}
+
+    # Check if container exists and is running
+    if ! docker ps --format '{{.Names}}' | grep -q "^${container}$"; then
+        echo "Error: Container '${container}' not found or not running"
+        return 1
+    fi
+
+    # Try bash first, fallback to sh
+    if ! docker exec -it "${container}" "${shell}"; then
+        echo "Falling back to /bin/sh..."
+        docker exec -it "${container}" /bin/sh
+    fi
+}
+
+# Function: mkd
+# Description: Create a directory and change into it
+# Arguments:
+#   $1 - directory path to create and enter
+# Example: mkcd projects/newapp
+# mkd() {
+#     if [[ $# -eq 0 ]]; then
+#         echo "Usage: mkcd <directory>"
+#         return 1
+#     }
+    
+#     mkdir -p "$1" && cd "$1"
+# }
+
+# Function: explain
+# Description: Show command documentation using tldr
+# Arguments:
+#   $1 - command name to lookup
+# Example: explain tar
+explain() {
+    if [[ $# -eq 0 ]]; then
+        echo "Usage: explain <command>"
+        echo "Example: explain tar"
+        return 1
+    fi
+    tldr "$1"
+}
