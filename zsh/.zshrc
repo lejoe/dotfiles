@@ -70,5 +70,11 @@ setopt HIST_IGNORE_SPACE
 # ?
 setopt HIST_VERIFY
 
+eval "$(zoxide init zsh)"
+
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
+
+source /opt/homebrew/opt/git-extras/share/git-extras/git-extras-completion.zsh
 
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
