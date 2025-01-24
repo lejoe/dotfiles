@@ -59,15 +59,15 @@ alias dklcip='docker inspect -f "{{.NetworkSettings.IPAddress}}" $(docker ps -l 
 alias dkps='docker ps'  # List running Docker containers
 alias dkpsa='docker ps -a'  # List all Docker containers
 alias dki='docker images'  # List Docker images
-alias dkrmac='docker rm $(docker ps -a -q)'  # Delete all Docker containersalias dkrmlc='docker-remove-most-recent-container'  # Delete most recent (i.e., last) Docker container
+alias dkrmac='docker rm $(docker ps -a -q)'  # Delete all Docker containers
+alias dkrmlc='docker-remove-most-recent-container'  # Delete most recent (i.e., last) Docker container
 alias dkrmall='docker-remove-stale-assets'  # Delete all untagged images and exited containers
 alias dkrmli='docker-remove-most-recent-image'  # Delete most recent (i.e., last) Docker image
 alias dkrmi='docker-remove-images'  # Delete images for supplied IDs or all if no IDs are passed as arguments
 alias dkre='docker-runtime-environment'  # List environmental variables of the supplied image ID
 alias dkelc='docker exec -it `dklcid` bash' # Enter last container (works with Docker 1.3 and above)
 
-alias dco="docker-compose"
-alias dcol="docker-compose logs -f --tail 100"
+alias dco="docker-compose"alias dcol="docker-compose logs -f --tail 100"
 
 # better dir listing with eza
 alias ls='eza --color=always --group-directories-first --icons'
