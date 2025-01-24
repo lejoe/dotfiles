@@ -1,11 +1,11 @@
+#!/bin/zsh
 
 # Copy recursively (-r) and be prompted to replace files
 # rather than it doing it automatically (-i).
 alias cp="cp -ir"
 
 
-# Short to open the current folder
-alias o='open .'
+# Short to open the current folderalias o='open .'
 
 # Always create directories recursively if a parent folder does not exist.
 alias mkdir='mkdir -p'
