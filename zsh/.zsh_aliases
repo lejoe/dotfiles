@@ -5,7 +5,8 @@
 alias cp="cp -ir"
 
 
-# Short to open the current folderalias o='open .'
+# Short to open the current folder
+alias o='open .'
 
 # Always create directories recursively if a parent folder does not exist.
 alias mkdir='mkdir -p'
