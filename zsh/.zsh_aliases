@@ -45,26 +45,13 @@ alias cleanup='fd -H "\.DS_Store|\.localized$" -t f -x rm -i {} \; && echo "Clea
 # Ranks the most used commands in the history
 alias profileme="fc -l 1 | awk '{CMD[\$2]++;count++;}END { for (a in CMD)print CMD[a] \" \" CMD[a]/count*100 \"% \" a;}' | grep -v \"./\" | column -c3 -s \" \" -t | sort -nr | nl | head -n20"
 
-# Shortcut to the bash file to find commands
-alias h='heelp | less -R'
-alias hf='heelp | grep'
-alias hh='h'
-alias hhh='h'
-alias hhhh='h'
-alias hhhhh='h'
-alias heeelp='h'
-alias heeeelp='h'
-alias heeeeelp='h'
-alias heeeeeelp='h'
-
 # copies the public key to the clibboard
 alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
 
 # shortcut to find a process / task
 alias t="ps -ef | grep"
 
-# Docker and docker compose aliases
-alias dk='docker'  # List last Docker container
+# Docker and docker compose aliasesalias dk='docker'  # List last Docker container
 alias dklc='docker ps -l'  # List last Docker container
 alias dklcid='docker ps -l -q'  # List last Docker container ID
 alias dklcip='docker inspect -f "{{.NetworkSettings.IPAddress}}" $(docker ps -l -q)'  # Get IP of last Docker container
